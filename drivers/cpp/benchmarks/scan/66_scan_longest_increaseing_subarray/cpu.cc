@@ -1,4 +1,4 @@
-// Driver for 35_scan_longest_increaseing_subarray for Serial, OpenMP, MPI, and MPI+OpenMP
+// Driver for 66_scan_longest_increaseing_subarray for Serial, OpenMP, MPI, and MPI+OpenMP
 // /* Return the first longest increasing contiguous subarray in the vector x.
 //    i.e. if x=[−2, 1, 2, 0, −1, 2, 3, −5, 4] then [-2, 1, 2], [-1, 2, 3] are both longest increasing contiguous
 //    subarray, but [-2, 1, 2] is the first one, thus we return [-2, 1, 2] as the result.

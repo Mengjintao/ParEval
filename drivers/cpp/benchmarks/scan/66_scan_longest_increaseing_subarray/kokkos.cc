@@ -1,20 +1,4 @@
-// Driver for 33_scan_reverse_prefix_sum for Kokkos
-// #include <Kokkos_Core.hpp>
-// 
-// /* Compute the reverse prefix sum of the array x into output.
-//    Use Kokkos to compute in parallel. Assume Kokkos has already been initialized.
-//    Examples:
-//    
-//    input: [1, 7, 4, 6, 6, 2]
-//    output: [2, 8, 14, 18, 25, 26]
-// 
-//    input: [3, 3, 7, 1, -2]
-//    output: [-2, -1, 6, 9, 12]
-// */
-// void reversePrefixSum(Kokkos::View<const int*> const& x, Kokkos::View<int*> &output) {
-
-
-// Driver for 35_scan_longest_increaseing_subarray for Kokkos
+// Driver for 66_scan_longest_increaseing_subarray for Kokkos
 // #include <Kokkos_Core.hpp>
 // 
 // /* Return the first longest increasing contiguous subarray in the vector x.
