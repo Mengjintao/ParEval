@@ -566,14 +566,14 @@
     "cuda": "(1<<14)",
     "hip": "(1<<14)"
   },
-  "63_graph_shortest_path": {
-    "serial": "(1<<12)",
-    "omp": "(1<<12)",
-    "mpi": "(1<<12)",
-    "mpi+omp": "(1<<12)",
-    "kokkos": "(1<<11)",
-    "cuda": "(1<<12)",
-    "hip": "(1<<12)"
+  "63_graph_floyd": {
+    "serial": "(1<<10)",
+    "omp": "(1<<10)",
+    "mpi": "(1<<10)",
+    "mpi+omp": "(1<<10)",
+    "kokkos": "(1<<10)",
+    "cuda": "(1<<10)",
+    "hip": "(1<<10)"
   },
   "64_histogram_count_quartile": {
     "serial": "(1<<22)",

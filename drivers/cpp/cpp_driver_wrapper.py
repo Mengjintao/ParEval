@@ -65,6 +65,10 @@ class CppDriverWrapper(DriverWrapper):
         """ Write the given c++ source to the given file. """
         with open(fpath, "w") as fp:
             fp.write(content)
+
+        src_path = os.path.join("/tmp", f"generated-code.hpp")
+        with open(src_path, "w") as fp:
+            fp.write(content)
         return True
 
     def patch_prompt(self, content: str) -> str:
@@ -92,16 +96,19 @@ class CppDriverWrapper(DriverWrapper):
             binaries_str = ' '.join(binaries)
             macro = f"-DUSE_{self.parallelism_model.upper()}"
             cmd = f"{CXX} {CXXFLAGS} -Icpp -Icpp/models {macro} {binaries_str} -o {output_path}"
+#            print("cmd:", cmd)
             try:
                 compile_process = run_command(cmd, timeout=self.build_timeout, dry=self.dry)
             except subprocess.TimeoutExpired as e:
                 return BuildOutput(-1, str(e.stdout), f"[Timeout] {str(e.stderr)}")
+            print("compile_process:", compile_process)
         return BuildOutput(compile_process.returncode, compile_process.stdout, compile_process.stderr)
 
     def run(self, executable: PathLike, **run_config) -> RunOutput:
         """ Run the given executable. """
         launch_format = self.launch_configs["format"]
         launch_cmd = launch_format.format(exec_path=executable, args="", **run_config).strip()
+#        print("launch_cmd:", launch_cmd)
         try:
             run_process = run_command(launch_cmd, timeout=self.run_timeout, dry=self.dry)
         except subprocess.TimeoutExpired as e:
@@ -118,8 +125,10 @@ class CppDriverWrapper(DriverWrapper):
             # write out the prompt + output
             src_ext = "cuh" if self.parallelism_model in ["cuda", "hip"] else "hpp"
             src_path = os.path.join(tmpdir, f"generated-code.{src_ext}")
+#            print("src_path:", src_path)
             prompt = self.patch_prompt(prompt)
             write_success = self.write_source(prompt+"\n"+output, src_path)
+#            print("source code:", prompt+"\n"+output)
             logging.debug(f"Wrote source to {src_path}.")
 
             # compile and run the output

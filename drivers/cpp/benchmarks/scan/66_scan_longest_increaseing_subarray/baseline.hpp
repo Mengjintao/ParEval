@@ -12,7 +12,7 @@
 */
 void NO_INLINE correctLongestIncreasingSubarray(std::vector<int> const& x, std::vector<int> &output) {
     //return a null array when x is null
-    if(x.size==0)	return output;
+    if(x.size()==0)	return ;
 
     //initialize the variables
     int longestStep = 1;
@@ -37,6 +37,4 @@ void NO_INLINE correctLongestIncreasingSubarray(std::vector<int> const& x, std::
     for(int i=start; i <= end; i++)	{
         output.push_back(x[i]);
     }
-
-    return res;
 }

@@ -7,4 +7,4 @@
    input: [−2, 1, 2, 0, −1, 2, 3, −5, 4]
    output: [-2, 1, 2]
 */
-void longestIncreasingSubarray(std::vector<int> const& x, std::vector<int> &output) {
+__global__ void longestIncreasingSubarray(const int *x, size_t N, int *output, size_t& M) {
