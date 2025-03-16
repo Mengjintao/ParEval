@@ -14,10 +14,15 @@ make
 
 ## Running the prompts
 Given a prompt and output data set in `generated-outputs.json` you can run each
-of the generated outputs using the below command.
+of the generated outputs using the below command.  If use the data set in `../prompts/all_serial_runall.json`
+you can test all 72 problems in one run. 
 
 ```sh
 python run-all.py generated-outputs.json
+
+or
+
+python run-all.py ../prompts/all_serial_runall.json
 
 # usage: run-all.py [-h] [-o OUTPUT] [--scratch-dir SCRATCH_DIR] [--launch-configs LAUNCH_CONFIGS] [--problem-sizes PROBLEM_SIZES] [--yes-to-all]
 #                   [--dry] [--overwrite] [--hide-progress]
