@@ -27,7 +27,12 @@ struct Context {
 void randomConnectedUndirectedGraph(std::vector<int> &A, size_t N) {
     std::vector<int> nodes(N);
     std::iota(nodes.begin(), nodes.end(), 0);
-    std::random_shuffle(nodes.begin(), nodes.end());
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    std::shuffle(nodes.begin(), nodes.end(), g);
+//  std::random_shuffle(nodes.begin(), nodes.end());
 
     for (int i = 0; i < N-1; i += 1) {
         A[nodes[i] * N + nodes[i+1]] = 1;

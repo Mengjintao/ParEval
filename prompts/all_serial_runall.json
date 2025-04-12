@@ -235,7 +235,7 @@
         "prompt": "/* Return the logical XOR reduction of the vector of bools x.\n   Example:\n\n   input: [false, false, false, true]\n   output: true\n*/\nbool reduceLogicalXOR(std::vector<bool> const& x) {",
         "outputs": [
             "\n    return std::reduce(x.begin(), x.end(), false, [] (const auto &a, const auto &b) {\n        return a != b;\n    });\n}\n",
-            " return 0; }",
+            " return 1; }",
             " undefinedFunction(); }"
         ]
     },
@@ -427,7 +427,7 @@
         "prompt": "/* Return true if `val` is only in one of vectors x or y.\n   Return false if it is in both or neither.\n   Examples:\n\n   input: x=[1,8,4,3,2], y=[3,4,4,1,1,7], val=7\n   output: true\n\n   input: x=[1,8,4,3,2], y=[3,4,4,1,1,7], val=1\n   output: false\n*/\nbool xorContains(std::vector<int> const& x, std::vector<int> const& y, int val) {",
         "outputs": [
             "\n   const bool foundInX = std::find(x.begin(), x.end(), val) != x.end();\n   const bool foundInY = std::find(y.begin(), y.end(), val) != y.end();\n\n   return foundInX ^ foundInY;\n}\n",
-            " return 0; }",
+            " return 1; }",
             " undefinedFunction(); }"
         ]
     },

@@ -21,6 +21,7 @@
 
 struct Context {
     std::vector<float> x;
+//    std::vector<float> output;
 };
 
 void reset(Context *ctx) {
@@ -32,7 +33,7 @@ Context *init() {
     Context *ctx = new Context();
 
     ctx->x.resize(DRIVER_PROBLEM_SIZE);
-    ctx->output.resize(DRIVER_PROBLEM_SIZE);
+//    ctx->output.resize(DRIVER_PROBLEM_SIZE);
 
     reset(ctx);
     return ctx;
